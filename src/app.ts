@@ -1,7 +1,9 @@
 import { Client } from "discord.js";
 import dotenv from "dotenv";
+import { addGIFReactionOnNewsPost } from "./service/ReactionService";
 import { logError, logInfo } from "./utility/Logger";
 
+dotenv.config();
 const { DISCORD_TOKEN } = process.env;
 
 const client = new Client({
@@ -12,7 +14,9 @@ client.once("ready", () => {
     logInfo("Discord bot is ready! 🤖");
 });
 
-dotenv.config();
+client.on('message', (msg: any) => {
+    addGIFReactionOnNewsPost(msg)
+});
 
 if (DISCORD_TOKEN) {
     client.login(DISCORD_TOKEN);
