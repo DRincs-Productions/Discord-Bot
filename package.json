@@ -4,10 +4,21 @@
   "license": "GPL-3.0",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "build": "rimraf dist && tsc",
+      "start": "nodemon src/index.ts",
+      "ts.check": "tsc --project tsconfig.json",
+      "add-build": "git add dist",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "concurrently \"npx tsc --watch\" \"nodemon -q out/app.js\""
   },
+  "pre-commit": [
+      "ts.check",
+      "build",
+      "add-build"
+  ],
+  "keywords": [],
   "dependencies": {
     "discord.js": "^14.11.0",
     "dotenv": "^16.1.4"
