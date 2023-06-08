@@ -1,7 +1,11 @@
 {
     "recommendations": [
-        "github.vscode-github-actions",
         "eamodio.gitlens",
-        "ms-vscode.vscode-typescript-next"
+        "donjayamanne.githistory",
+        "ms-vscode.vscode-typescript-next",
+        "adrianwilczynski.csharp-to-typescript",
+        "aaron-bond.better-comments",
+        "dbaeumer.vscode-eslint",
+        "github.vscode-github-actions"
     ]
 }
