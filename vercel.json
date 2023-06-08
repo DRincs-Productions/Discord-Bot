@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "public": false,
+  "github": {
+    "enabled": false
+  },
+  "builds": [
+    {
+      "src": "out/app.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "out/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "out/app.js"
+    }
+  ]
+}
