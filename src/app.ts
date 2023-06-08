@@ -3,8 +3,6 @@ import dotenv from "dotenv";
 import { addGIFReactionOnNewsPost } from "./service/ReactionService";
 import { logError, logInfo } from "./utility/Logger";
 
-let firebase_functions = require("firebase-functions");
-
 // env
 dotenv.config();
 const { DISCORD_BOT_TOKEN } = process.env;
