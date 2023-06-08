@@ -1,5 +1,6 @@
 import { Client } from "discord.js";
 import dotenv from "dotenv";
+import { logError, logInfo } from "./utility/Logger";
 
 const { DISCORD_TOKEN } = process.env;
 
@@ -8,15 +9,14 @@ const client = new Client({
 });
 
 client.once("ready", () => {
-    console.log("Discord bot is ready! 🤖");
+    logInfo("Discord bot is ready! 🤖");
 });
 
 dotenv.config();
-
 
 if (DISCORD_TOKEN) {
     client.login(DISCORD_TOKEN);
 }
 else {
-    console.log("Missing environment variables")
+    logError("Missing environment variables")
 }
