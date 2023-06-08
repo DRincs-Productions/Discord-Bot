@@ -19,11 +19,16 @@ client.on('message', (msg: any) => {
     addGIFReactionOnNewsPost(msg)
 });
 
-if (DISCORD_BOT_TOKEN) {
-    client.login(DISCORD_BOT_TOKEN);
+try {
+    if (DISCORD_BOT_TOKEN) {
+        client.login(DISCORD_BOT_TOKEN);
+    }
+    else {
+        logError("Missing environment variables")
+    }
 }
-else {
-    logError("Missing environment variables")
+catch (e) {
+    logError("Error into login")
 }
 
 // * for firebase Hosting (now not used)
