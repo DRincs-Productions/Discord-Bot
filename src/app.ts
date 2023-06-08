@@ -7,7 +7,7 @@ let firebase_functions = require("firebase-functions");
 
 // env
 dotenv.config();
-const { DISCORD_TOKEN } = process.env;
+const { DISCORD_BOT_TOKEN } = process.env;
 
 const client = new Client({
     intents: ["Guilds", "GuildMessages", "DirectMessages", "GuildMembers", "GuildEmojisAndStickers"],
@@ -21,8 +21,8 @@ client.on('message', (msg: any) => {
     addGIFReactionOnNewsPost(msg)
 });
 
-if (DISCORD_TOKEN) {
-    client.login(DISCORD_TOKEN);
+if (DISCORD_BOT_TOKEN) {
+    client.login(DISCORD_BOT_TOKEN);
 }
 else {
     logError("Missing environment variables")
