@@ -29,4 +29,4 @@ else {
 }
 
 // * for firebase Hosting (now not used)
-exports.app = firebase_functions.https.onRequest(client);
+// exports.app = firebase_functions.https.onRequest(client);
