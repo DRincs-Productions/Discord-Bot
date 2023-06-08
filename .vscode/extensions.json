@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "github.vscode-github-actions",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-typescript-next"
+    ]
+}
