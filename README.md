@@ -10,10 +10,15 @@ So all tokens are handled by Render.
 
 Build Command:
 ```shell
-npm run build
+npm install -g ts-node; npm i; npm ci; npm run build; ls
 ```
 
 Start Command:
 ```shell
 npm start
+```
+
+Enviroment:
+```
+NODE_VERSION=18.16.0
 ```
