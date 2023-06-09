@@ -46,6 +46,11 @@ jobs:
         with:
           name: build
           path: out
+      - name: Add env
+        # IMPORTANT: there must not be the ability to download the built because inside who are the keys
+        run: |
+          echo -e "DISCORD_BOT_TOKEN=${{ secrets.DISCORD_BOT_TOKEN }}" >> .env
+          echo -e "LOGTAIL_DISCORD_KEY=${{ secrets.LOGTAIL_DISCORD_KEY }}" >> .env
       # https://github.com/johnbeynon/render-deploy-action
       - name: Deploy Project Artifacts to Render
         uses: johnbeynon/render-deploy-action@v0.0.8
