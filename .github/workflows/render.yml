@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: build
+        path: out
 
   deploy:
     name: Deploy
@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
-          path: build
+          path: out
       # https://github.com/johnbeynon/render-deploy-action
       - name: Deploy Project Artifacts to Render
         uses: johnbeynon/render-deploy-action@v0.0.8
