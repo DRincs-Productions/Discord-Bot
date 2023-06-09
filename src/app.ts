@@ -1,5 +1,6 @@
 import { Client } from "discord.js";
 import dotenv from "dotenv";
+import express, { Express } from 'express';
 import { addGIFReactionOnNewsPost } from "./service/ReactionService";
 import { logError, logInfo } from "./utility/Logger";
 
@@ -7,6 +8,7 @@ import { logError, logInfo } from "./utility/Logger";
 dotenv.config();
 const { DISCORD_BOT_TOKEN } = process.env;
 
+const app: Express = express();
 const client = new Client({
     intents: ["Guilds", "GuildMessages", "DirectMessages", "GuildMembers", "GuildEmojisAndStickers"],
 });
@@ -30,6 +32,13 @@ try {
 catch (e) {
     logError("Error into login")
 }
+
+app.get("/", (req, res) => {
+    logInfo("api home")
+    res.send(`This is the drincs-discord-bot`)
+})
+
+app.listen(5000, () => logInfo(`Discord Api is running on port ${5000}!`));
 
 // * for firebase Hosting (now not used)
 // exports.app = firebase_functions.https.onRequest(client);
