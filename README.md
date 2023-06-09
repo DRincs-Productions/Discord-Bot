@@ -10,7 +10,7 @@ So all tokens are handled by Render.
 
 Build Command:
 ```shell
-npm ci; npm run build; ls
+npm run build
 ```
 
 Start Command:
