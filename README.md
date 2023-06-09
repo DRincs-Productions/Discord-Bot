@@ -15,5 +15,5 @@ npm ci; npm run build; ls
 
 Start Command:
 ```shell
-node out/app.js
+npm start
 ```
