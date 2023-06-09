@@ -15,7 +15,7 @@ npm install -g ts-node; npm i; npm ci; npm run build; ls
 
 Start Command:
 ```shell
-npm start
+node app.js
 ```
 
 Enviroment:
