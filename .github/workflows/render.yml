@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Archive Build
 
     runs-on: ubuntu-latest
 
@@ -21,10 +21,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install and CI and Build and Add env
-      env:
-        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-        LOGTAIL_DISCORD_KEY: ${{ secrets.LOGTAIL_DISCORD_KEY }}
+    - name: Install and CI and Build
       run: |
         npm install
         npm ci
@@ -41,16 +38,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Download Build
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: out
-      - name: Add env
-        # IMPORTANT: there must not be the ability to download the built because inside who are the keys
-        run: |
-          echo -e "DISCORD_BOT_TOKEN=${{ secrets.DISCORD_BOT_TOKEN }}" >> .env
-          echo -e "LOGTAIL_DISCORD_KEY=${{ secrets.LOGTAIL_DISCORD_KEY }}" >> .env
       # https://github.com/johnbeynon/render-deploy-action
       - name: Deploy Project Artifacts to Render
         uses: johnbeynon/render-deploy-action@v0.0.8
