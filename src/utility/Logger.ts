@@ -5,7 +5,6 @@ export function logInfo(message: string, body: any = "") {
         try {
             let logtail = new Logtail(process.env.LOGTAIL_DISCORD_KEY || "");
             logtail.info(message, body);
-            return
         }
         catch (ex) { }
     }
@@ -17,7 +16,6 @@ export function logWarn(message: string, body: any = "") {
         try {
             let logtail = new Logtail(process.env.LOGTAIL_DISCORD_KEY || "");
             logtail.warn(message, body);
-            return
         }
         catch (ex) { }
     }
@@ -29,7 +27,6 @@ export function logError(message: string, body: any = "") {
         try {
             let logtail = new Logtail(process.env.LOGTAIL_DISCORD_KEY || "");
             logtail.error(message, body);
-            return
         }
         catch (ex) { }
     }
@@ -46,6 +43,7 @@ export function logTest(): string {
         return true.toString()
     }
     catch (ex) {
+        console.error(ex)
         return false.toString()
     }
 }

@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 import dotenv from "dotenv";
 import express, { Express } from 'express';
+import { ApiController } from "./controllers/ApiController";
 import { addGIFReactionOnNewsPost } from "./service/ReactionService";
 import { logError, logInfo } from "./utility/Logger";
 
@@ -33,11 +34,7 @@ catch (e) {
     logError("Error into login")
 }
 
-app.get("/", (req, res) => {
-    logInfo("api home")
-    res.send(`This is the drincs-discord-bot`)
-})
-
+new ApiController(app)
 app.listen(5000, () => logInfo(`Discord Api is running on port ${5000}!`));
 
 // * for firebase Hosting (now not used)
